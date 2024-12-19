@@ -38,7 +38,7 @@ s3_client = boto3.client(
         s3={"addressing_style": "path"},
     ),
 )
-bucket_name = "tsai-emlo"
+bucket_name = "mybucket-emlo-mumbai"
 objects_prefix = "sd3-outputs"
 
 # Store results in memory
