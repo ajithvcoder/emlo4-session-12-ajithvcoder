@@ -55,7 +55,7 @@ def submit_inference(uid: str, text: str):
     results_map[uid] = {"status": "PENDING"}
     try:
         # Call torchserve endpoint
-        response = requests.post("<http://localhost:8080/predictions/sd3>", data=text)
+        response = requests.post("http://localhost:8080/predictions/sd3", data=text)
         
         if response.status_code != 200:
             raise Exception(f"Torchserve error: {response.text}")
