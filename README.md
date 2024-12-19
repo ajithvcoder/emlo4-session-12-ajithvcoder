@@ -29,17 +29,27 @@ above command takes 30 minutes+ and make sure within 15 minutes u r are getting 
 now a sd3-model.mar file will be generated
 mv sd3-model.mar model-store/
 
+Testing
+
+
+torchserve --start --ts-config=config.properties --model-store model_store --models sd3=sd3.mar --disable-token-auth --ncs --enable-model-api 
+
+Have a timer in your laptop for this to wait paitently. I did this with g6.2xlarge instance, may be with higher power it may reduce
+
+Wait for 10 minutes
+
+then do `curl http://localhost:8080/ping`, you should get healthy
+
+then do `curl http://localhost:8080/predictions/sd3?text=dog`and Wait for 20 minutes, you will get a error that worker has failed after 20 minutes. (because of timeout setting in config.properties)
+
+then do `curl http://localhost:8080/predictions/sd3?text=dog` again and Wait for 10 minutes, you might get inference now
+
+Only the first inference will be like this, successive inference may take only 30 seconds or less
+
+
 -------------------------
 
-Testing torch server
 
-wait until u recieve below line, it might take 5-10 minutes
-```
-Model sd3 loaded
-...
-...
-2024-12-19T09:46:02,302 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Zip file contents: ['model_index.json', 'scheduler/', 
-```
 
 ```
 docker run --rm --shm-size=1g  --ulimit memlock=-1  --ulimit stack=67108864    -p8080:8080   -p8081:8081  -p8082:8082         -p7070:7070         -p7071:7071 --gpus all -v /home/ubuntu/dev/emlo4-session-12-ajithvcoder/torchserve/config.properties:/home/model-server/config.properties         --mount type=bind,source=/home/ubuntu/dev/emlo4-session-12-ajithvcoder/torchserve/model_store,target=/tmp/models pytorch/torchserve:0.12.0-gpu torchserve --model-store=/tmp/models
@@ -80,3 +90,13 @@ npm install
 npm run dev
 
 
+
+
+
+docker run -d \
+  --name dtorchserve \
+  -p 8080:8080 \
+  -p 8081:8081 \
+  -p 8082:8082 \
+  --network common_network \
+  torchserve --start --ts-config=config.properties --model-store model_store --models sd3=sd3.mar --disable-token-auth --ncs --enable-model-api --foreground
