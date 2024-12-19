@@ -1,0 +1,4 @@
+boto3==1.35.76
+fastapi[standard]==0.115.5
+pillow==10.4.0
+numpy==1.26.4
