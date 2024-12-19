@@ -19,6 +19,8 @@ services:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: ${AWS_REGION}
+      TORCHSERVE_MANAGEMENT_API: http://dtorchserve:8081
+      TORCHSERVE_INFERENCE_API: http://dtorchserve:8080
     container_name: dfastapi
     depends_on:
       - "torchserve_service"
@@ -34,7 +36,7 @@ services:
 
   web_service:
     environment:
-      NEXT_PUBLIC_BACKEND_URL: http://dfastapi:9080
+      BACKEND_URL: http://dfastapi:9080
     depends_on:
       - "torchserve_service"
       - "fastapi_service"

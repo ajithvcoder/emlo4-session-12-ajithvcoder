@@ -1,5 +1,6 @@
 from typing import Annotated
 import io
+import os
 import numpy as np
 import requests
 import json
@@ -11,6 +12,9 @@ from PIL import Image
 from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
+
+TORCHSERVE_MANAGEMENT_API = os.getenv("TORCHSERVE_MANAGEMENT_API",'http://localhost:8081')
+TORCHSERVE_INFERENCE_API = os.getenv("TORCHSERVE_INFERENCE_API","http://localhost:8080")
 
 app = FastAPI(
     title="Stable Diffusion 3",
@@ -55,7 +59,7 @@ def submit_inference(uid: str, text: str):
     results_map[uid] = {"status": "PENDING"}
     try:
         # Call torchserve endpoint
-        response = requests.post("http://localhost:8080/predictions/sd3", data=text)
+        response = requests.post(f"{TORCHSERVE_INFERENCE_API}/predictions/sd3", data=text)
         
         if response.status_code != 200:
             raise Exception(f"Torchserve error: {response.text}")
