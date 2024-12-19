@@ -1,0 +1,970 @@
+WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+2024-12-19T14:32:16,175 [DEBUG] main org.pytorch.serve.util.ConfigManager - xpu-smi not available or failed: Cannot run program "xpu-smi": error=2, No such file or directory
+2024-12-19T14:32:16,181 [WARN ] main org.pytorch.serve.util.ConfigManager - Your torchserve instance can access any URL to load models. When deploying to production, make sure to limit the set of allowed_urls in config.properties
+2024-12-19T14:32:16,191 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
+2024-12-19T14:32:16,249 [INFO ] main org.pytorch.serve.metrics.configuration.MetricConfiguration - Successfully loaded metrics configuration from /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml
+2024-12-19T14:32:16,340 [INFO ] main org.pytorch.serve.ModelServer - 
+Torchserve version: 0.12.0
+TS Home: /opt/conda/lib/python3.11/site-packages
+Current directory: /workspace
+Temp directory: /tmp
+Metrics config path: /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml
+Number of GPUs: 1
+Number of CPUs: 8
+Max heap size: 7722 M
+Python executable: /opt/conda/bin/python3.11
+Config file: config.properties
+Inference address: http://0.0.0.0:8080
+Management address: http://0.0.0.0:8081
+Metrics address: http://0.0.0.0:8082
+Model Store: /workspace/model_store
+Initial Models: sd3=sd3.mar
+Log dir: /workspace/logs
+Metrics dir: /workspace/logs
+Netty threads: 0
+Netty client threads: 0
+Default workers per model: 1
+Blacklist Regex: N/A
+Maximum Response Size: 655350000
+Maximum Request Size: 6553500
+Limit Maximum Image Pixels: true
+Prefer direct buffer: false
+Allowed Urls: [file://.*|http(s)?://.*]
+Custom python dependency for model allowed: true
+Enable metrics API: true
+Metrics mode: LOG
+Disable system metrics: false
+Workflow Store: /workspace/model_store
+CPP log config: N/A
+Model config: N/A
+System metrics command: default
+Model API enabled: true
+2024-12-19T14:32:16,355 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
+2024-12-19T14:32:16,382 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Started restoring models from snapshot {"name":"startup.cfg","modelCount":1,"models":{"sd3":{"1.0":{"defaultVersion":true,"marName":"sd3.mar","minWorkers":3,"maxWorkers":6,"batchSize":1,"maxBatchDelay":10,"responseTimeout":5200,"startupTimeout":5200}}}}
+2024-12-19T14:32:16,390 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Validating snapshot startup.cfg
+2024-12-19T14:32:16,391 [INFO ] main org.pytorch.serve.snapshot.SnapshotManager - Snapshot startup.cfg validated successfully
+2024-12-19T14:35:58,518 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1.0 for model sd3
+2024-12-19T14:35:58,518 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1.0 for model sd3
+2024-12-19T14:37:33,089 [INFO ] main org.pytorch.serve.wlm.ModelManager - Installed custom pip packages for model sd3
+2024-12-19T14:37:33,089 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1.0 for model sd3
+2024-12-19T14:37:33,089 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model sd3 loaded.
+2024-12-19T14:37:33,089 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: sd3, count: 3
+2024-12-19T14:37:33,202 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/opt/conda/bin/python3.11, /opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9001, --metrics-config, /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml]
+2024-12-19T14:37:33,202 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/opt/conda/bin/python3.11, /opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9002, --metrics-config, /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml]
+2024-12-19T14:37:33,203 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/opt/conda/bin/python3.11, /opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml]
+2024-12-19T14:37:33,300 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
+2024-12-19T14:37:33,722 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://0.0.0.0:8080
+2024-12-19T14:37:33,723 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: EpollServerSocketChannel.
+2024-12-19T14:37:33,724 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://0.0.0.0:8081
+2024-12-19T14:37:33,724 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
+2024-12-19T14:37:33,725 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://0.0.0.0:8082
+2024-12-19T14:37:35,278 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - s_name_part0=/tmp/.ts.sock, s_name_part1=9000, pid=79
+2024-12-19T14:37:35,278 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - s_name_part0=/tmp/.ts.sock, s_name_part1=9001, pid=77
+2024-12-19T14:37:35,278 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - s_name_part0=/tmp/.ts.sock, s_name_part1=9002, pid=78
+2024-12-19T14:37:35,279 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9002
+2024-12-19T14:37:35,279 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2024-12-19T14:37:35,279 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2024-12-19T14:37:35,284 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Successfully loaded /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml.
+2024-12-19T14:37:35,284 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Successfully loaded /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml.
+2024-12-19T14:37:35,284 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - [PID]78
+2024-12-19T14:37:35,284 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - [PID]79
+2024-12-19T14:37:35,285 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Torch worker started.
+2024-12-19T14:37:35,285 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Torch worker started.
+2024-12-19T14:37:35,285 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Python runtime: 3.11.10
+2024-12-19T14:37:35,285 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-sd3_1.0 State change null -> WORKER_STARTED
+2024-12-19T14:37:35,285 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Python runtime: 3.11.10
+2024-12-19T14:37:35,285 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9002-sd3_1.0 State change null -> WORKER_STARTED
+2024-12-19T14:37:35,286 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Successfully loaded /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml.
+2024-12-19T14:37:35,287 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - [PID]77
+2024-12-19T14:37:35,287 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Torch worker started.
+2024-12-19T14:37:35,287 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9001-sd3_1.0 State change null -> WORKER_STARTED
+2024-12-19T14:37:35,287 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Python runtime: 3.11.10
+2024-12-19T14:37:35,335 [INFO ] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9002
+2024-12-19T14:37:35,335 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9001
+2024-12-19T14:37:35,335 [INFO ] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
+2024-12-19T14:37:35,401 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2024-12-19T14:37:35,401 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2024-12-19T14:37:35,401 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9002.
+2024-12-19T14:37:35,405 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd LOAD repeats 1 to backend at: 1734619055405
+2024-12-19T14:37:35,405 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd LOAD repeats 1 to backend at: 1734619055405
+2024-12-19T14:37:35,405 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd LOAD repeats 1 to backend at: 1734619055405
+2024-12-19T14:37:35,409 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734619055409
+2024-12-19T14:37:35,410 [INFO ] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734619055410
+2024-12-19T14:37:35,410 [INFO ] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734619055410
+2024-12-19T14:37:35,533 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - model_name: sd3, batchSize: 1
+2024-12-19T14:37:35,533 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - model_name: sd3, batchSize: 1
+2024-12-19T14:37:35,533 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - model_name: sd3, batchSize: 1
+Model server started.
+2024-12-19T14:37:35,978 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+2024-12-19T14:37:35,979 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+2024-12-19T14:37:35,979 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - The cache for model files in Transformers v4.22.0 has been updated. Migrating your old cache. This is a one-time only operation. You can interrupt this and resume the migration later on by calling `transformers.utils.move_cache()`.
+2024-12-19T14:37:35,986 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:37:35,987 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 0it [00:00, ?it/s]
+2024-12-19T14:37:35,987 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:37:35,987 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:37:35,987 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 0it [00:00, ?it/s]
+2024-12-19T14:37:35,987 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - 0it [00:00, ?it/s]
+2024-12-19T14:37:35,987 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - 0it [00:00, ?it/s]
+2024-12-19T14:37:35,987 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - 0it [00:00, ?it/s]
+2024-12-19T14:37:35,987 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - 0it [00:00, ?it/s]
+2024-12-19T14:37:40,760 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Enabled tensor cores
+2024-12-19T14:37:40,760 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - OpenVINO is not enabled
+2024-12-19T14:37:40,760 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - proceeding without onnxruntime
+2024-12-19T14:37:40,761 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Torch TensorRT not enabled
+2024-12-19T14:37:40,761 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Loading sd3_handler...
+2024-12-19T14:37:40,761 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Initializing SD3Handler...
+2024-12-19T14:37:40,761 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting initialization...
+2024-12-19T14:37:40,761 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Model directory: /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4
+2024-12-19T14:37:40,761 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - CUDA available: True
+2024-12-19T14:37:40,762 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - CUDA device count: 1
+2024-12-19T14:37:40,762 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - CUDA current device: 0
+2024-12-19T14:37:40,762 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - CUDA device name: NVIDIA L4
+2024-12-19T14:37:40,762 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU ID: 0
+2024-12-19T14:37:40,762 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Using device: cuda:0
+2024-12-19T14:37:40,763 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU Memory before loading: 0.00GB
+2024-12-19T14:37:40,763 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting to extract model from /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3-model.zip to /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model
+2024-12-19T14:37:40,763 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Zip file contents: ['model_index.json', 'scheduler/', 'scheduler/scheduler_config.json', 'text_encoder/', 'text_encoder/config.json', 'text_encoder/model.safetensors', 'text_encoder_2/', 'text_encoder_2/config.json', 'text_encoder_2/model.safetensors', 'text_encoder_3/', 'text_encoder_3/model-00001-of-00002.safetensors', 'text_encoder_3/config.json', 'text_encoder_3/model-00002-of-00002.safetensors', 'text_encoder_3/model.safetensors.index.json', 'tokenizer/', 'tokenizer/merges.txt', 'tokenizer/vocab.json', 'tokenizer/special_tokens_map.json', 'tokenizer/tokenizer_config.json', 'tokenizer_2/', 'tokenizer_2/merges.txt', 'tokenizer_2/vocab.json', 'tokenizer_2/special_tokens_map.json', 'tokenizer_2/tokenizer_config.json', 'tokenizer_3/', 'tokenizer_3/special_tokens_map.json', 'tokenizer_3/tokenizer.json', 'tokenizer_3/tokenizer_config.json', 'tokenizer_3/spiece.model', 'transformer/', 'transformer/config.json', 'transformer/diffusion_pytorch_model.safetensors', 'vae/', 'vae/config.json', 'vae/diffusion_pytorch_model.safetensors']
+2024-12-19T14:37:40,764 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Enabled tensor cores
+2024-12-19T14:37:40,765 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - OpenVINO is not enabled
+2024-12-19T14:37:40,765 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - proceeding without onnxruntime
+2024-12-19T14:37:40,765 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Torch TensorRT not enabled
+2024-12-19T14:37:40,765 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Loading sd3_handler...
+2024-12-19T14:37:40,765 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Initializing SD3Handler...
+2024-12-19T14:37:40,766 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Enabled tensor cores
+2024-12-19T14:37:40,766 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Starting initialization...
+2024-12-19T14:37:40,766 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Model directory: /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4
+2024-12-19T14:37:40,766 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - CUDA available: True
+2024-12-19T14:37:40,766 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - CUDA device count: 1
+2024-12-19T14:37:40,766 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - OpenVINO is not enabled
+2024-12-19T14:37:40,766 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - CUDA current device: 0
+2024-12-19T14:37:40,766 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - proceeding without onnxruntime
+2024-12-19T14:37:40,767 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - CUDA device name: NVIDIA L4
+2024-12-19T14:37:40,767 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Torch TensorRT not enabled
+2024-12-19T14:37:40,767 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - GPU ID: 0
+2024-12-19T14:37:40,767 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Using device: cuda:0
+2024-12-19T14:37:40,767 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Loading sd3_handler...
+2024-12-19T14:37:40,767 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Initializing SD3Handler...
+2024-12-19T14:37:40,767 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - GPU Memory before loading: 0.00GB
+2024-12-19T14:37:40,767 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Starting to extract model from /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3-model.zip to /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model
+2024-12-19T14:37:40,768 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Zip file contents: ['model_index.json', 'scheduler/', 'scheduler/scheduler_config.json', 'text_encoder/', 'text_encoder/config.json', 'text_encoder/model.safetensors', 'text_encoder_2/', 'text_encoder_2/config.json', 'text_encoder_2/model.safetensors', 'text_encoder_3/', 'text_encoder_3/model-00001-of-00002.safetensors', 'text_encoder_3/config.json', 'text_encoder_3/model-00002-of-00002.safetensors', 'text_encoder_3/model.safetensors.index.json', 'tokenizer/', 'tokenizer/merges.txt', 'tokenizer/vocab.json', 'tokenizer/special_tokens_map.json', 'tokenizer/tokenizer_config.json', 'tokenizer_2/', 'tokenizer_2/merges.txt', 'tokenizer_2/vocab.json', 'tokenizer_2/special_tokens_map.json', 'tokenizer_2/tokenizer_config.json', 'tokenizer_3/', 'tokenizer_3/special_tokens_map.json', 'tokenizer_3/tokenizer.json', 'tokenizer_3/tokenizer_config.json', 'tokenizer_3/spiece.model', 'transformer/', 'transformer/config.json', 'transformer/diffusion_pytorch_model.safetensors', 'vae/', 'vae/config.json', 'vae/diffusion_pytorch_model.safetensors']
+2024-12-19T14:37:40,767 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Starting initialization...
+2024-12-19T14:37:40,769 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Model directory: /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4
+2024-12-19T14:37:40,769 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - CUDA available: True
+2024-12-19T14:37:40,769 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - CUDA device count: 1
+2024-12-19T14:37:40,769 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - CUDA current device: 0
+2024-12-19T14:37:40,769 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - CUDA device name: NVIDIA L4
+2024-12-19T14:37:40,769 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - GPU ID: 0
+2024-12-19T14:37:40,769 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Using device: cuda:0
+2024-12-19T14:37:40,770 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - GPU Memory before loading: 0.00GB
+2024-12-19T14:37:40,770 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Starting to extract model from /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3-model.zip to /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model
+2024-12-19T14:37:40,770 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Zip file contents: ['model_index.json', 'scheduler/', 'scheduler/scheduler_config.json', 'text_encoder/', 'text_encoder/config.json', 'text_encoder/model.safetensors', 'text_encoder_2/', 'text_encoder_2/config.json', 'text_encoder_2/model.safetensors', 'text_encoder_3/', 'text_encoder_3/model-00001-of-00002.safetensors', 'text_encoder_3/config.json', 'text_encoder_3/model-00002-of-00002.safetensors', 'text_encoder_3/model.safetensors.index.json', 'tokenizer/', 'tokenizer/merges.txt', 'tokenizer/vocab.json', 'tokenizer/special_tokens_map.json', 'tokenizer/tokenizer_config.json', 'tokenizer_2/', 'tokenizer_2/merges.txt', 'tokenizer_2/vocab.json', 'tokenizer_2/special_tokens_map.json', 'tokenizer_2/tokenizer_config.json', 'tokenizer_3/', 'tokenizer_3/special_tokens_map.json', 'tokenizer_3/tokenizer.json', 'tokenizer_3/tokenizer_config.json', 'tokenizer_3/spiece.model', 'transformer/', 'transformer/config.json', 'transformer/diffusion_pytorch_model.safetensors', 'vae/', 'vae/config.json', 'vae/diffusion_pytorch_model.safetensors']
+2024-12-19T14:37:42,138 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,142 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.53982925415039|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,142 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:122.2176628112793|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,142 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:64.4|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,142 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:0.017365633411478683|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,142 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:4.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,143 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:0.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,143 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:27367.5|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,143 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:3046.0390625|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:42,143 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:11.4|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619062
+2024-12-19T14:37:53,996 [INFO ] pool-2-thread-4 ACCESS_LOG - /172.18.0.1:45766 "GET /ping HTTP/1.1" 200 14
+2024-12-19T14:37:53,996 [INFO ] pool-2-thread-4 TS_METRICS - Requests2XX.Count:1.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619073
+2024-12-19T14:37:54,582 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Error during model extraction: [Errno 17] File exists: '/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model/text_encoder_2'
+2024-12-19T14:37:54,582 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Error during model extraction: [Errno 17] File exists: '/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model/text_encoder_2'
+2024-12-19T14:37:54,616 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Backend worker process died.
+2024-12-19T14:37:54,616 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Backend worker process died.
+2024-12-19T14:37:54,617 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Traceback (most recent call last):
+2024-12-19T14:37:54,617 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Traceback (most recent call last):
+2024-12-19T14:37:54,617 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 301, in <module>
+2024-12-19T14:37:54,617 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 301, in <module>
+2024-12-19T14:37:54,617 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     worker.run_server()
+2024-12-19T14:37:54,617 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     worker.run_server()
+2024-12-19T14:37:54,617 [INFO ] epollEventLoopGroup-5-2 org.pytorch.serve.wlm.WorkerThread - 9002 Worker disconnected. WORKER_STARTED
+2024-12-19T14:37:54,617 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
+2024-12-19T14:37:54,617 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 268, in run_server
+2024-12-19T14:37:54,618 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 268, in run_server
+2024-12-19T14:37:54,618 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2024-12-19T14:37:54,618 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2024-12-19T14:37:54,618 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2024-12-19T14:37:54,618 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2024-12-19T14:37:54,618 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 196, in handle_connection
+2024-12-19T14:37:54,618 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 196, in handle_connection
+2024-12-19T14:37:54,618 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2024-12-19T14:37:54,618 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2024-12-19T14:37:54,619 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -                             ^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:37:54,619 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -                             ^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:37:54,619 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 133, in load_model
+2024-12-19T14:37:54,619 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 133, in load_model
+2024-12-19T14:37:54,619 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     service = model_loader.load(
+2024-12-19T14:37:54,619 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     service = model_loader.load(
+2024-12-19T14:37:54,619 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -               ^^^^^^^^^^^^^^^^^^
+2024-12-19T14:37:54,619 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -               ^^^^^^^^^^^^^^^^^^
+2024-12-19T14:37:54,620 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_loader.py", line 143, in load
+2024-12-19T14:37:54,620 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_loader.py", line 143, in load
+2024-12-19T14:37:54,620 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     initialize_fn(service.context)
+2024-12-19T14:37:54,620 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     initialize_fn(service.context)
+2024-12-19T14:37:54,620 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3_handler.py", line 61, in initialize
+2024-12-19T14:37:54,620 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3_handler.py", line 61, in initialize
+2024-12-19T14:37:54,620 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     zip_ref.extractall(extract_path)
+2024-12-19T14:37:54,620 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     zip_ref.extractall(extract_path)
+2024-12-19T14:37:54,620 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/zipfile.py", line 1702, in extractall
+2024-12-19T14:37:54,621 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/zipfile.py", line 1702, in extractall
+2024-12-19T14:37:54,621 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     self._extract_member(zipinfo, path, pwd)
+2024-12-19T14:37:54,621 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     self._extract_member(zipinfo, path, pwd)
+2024-12-19T14:37:54,621 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/zipfile.py", line 1752, in _extract_member
+2024-12-19T14:37:54,621 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/zipfile.py", line 1752, in _extract_member
+2024-12-19T14:37:54,621 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     os.mkdir(targetpath)
+2024-12-19T14:37:54,621 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     os.mkdir(targetpath)
+2024-12-19T14:37:54,621 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - FileExistsError: [Errno 17] File exists: '/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model/text_encoder_2'
+2024-12-19T14:37:54,621 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - FileExistsError: [Errno 17] File exists: '/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model/text_encoder_2'
+2024-12-19T14:37:54,618 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died., startupTimeout:5200sec
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056) ~[?:?]
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:234) [model-server.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2024-12-19T14:37:54,618 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died., startupTimeout:5200sec
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056) ~[?:?]
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:234) [model-server.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2024-12-19T14:37:54,691 [WARN ] W-9000-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Load model failed: sd3, error: Worker died.
+2024-12-19T14:37:54,691 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-sd3_1.0 State change WORKER_STARTED -> WORKER_STOPPED
+2024-12-19T14:37:54,691 [WARN ] W-9002-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Load model failed: sd3, error: Worker died.
+2024-12-19T14:37:54,691 [INFO ] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Auto recovery start timestamp: 1734619074691
+2024-12-19T14:37:54,691 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9002-sd3_1.0 State change WORKER_STARTED -> WORKER_STOPPED
+2024-12-19T14:37:54,691 [INFO ] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Auto recovery start timestamp: 1734619074691
+2024-12-19T14:37:54,692 [INFO ] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
+2024-12-19T14:37:54,692 [INFO ] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9002 in 1 seconds.
+2024-12-19T14:37:54,735 [INFO ] W-9002-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9002-sd3_1.0-stdout
+2024-12-19T14:37:54,735 [INFO ] W-9002-sd3_1.0-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9002-sd3_1.0-stderr
+2024-12-19T14:37:54,735 [INFO ] W-9000-sd3_1.0-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-sd3_1.0-stderr
+2024-12-19T14:37:54,735 [INFO ] W-9000-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-sd3_1.0-stdout
+2024-12-19T14:37:55,693 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/opt/conda/bin/python3.11, /opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml]
+2024-12-19T14:37:55,693 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/opt/conda/bin/python3.11, /opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9002, --metrics-config, /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml]
+2024-12-19T14:37:56,875 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - s_name_part0=/tmp/.ts.sock, s_name_part1=9000, pid=143
+2024-12-19T14:37:56,876 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2024-12-19T14:37:56,879 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - s_name_part0=/tmp/.ts.sock, s_name_part1=9002, pid=144
+2024-12-19T14:37:56,879 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9002
+2024-12-19T14:37:56,881 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Successfully loaded /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml.
+2024-12-19T14:37:56,881 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - [PID]143
+2024-12-19T14:37:56,882 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Torch worker started.
+2024-12-19T14:37:56,882 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-sd3_1.0 State change WORKER_STOPPED -> WORKER_STARTED
+2024-12-19T14:37:56,882 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Python runtime: 3.11.10
+2024-12-19T14:37:56,882 [INFO ] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
+2024-12-19T14:37:56,883 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2024-12-19T14:37:56,883 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd LOAD repeats 1 to backend at: 1734619076883
+2024-12-19T14:37:56,883 [INFO ] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734619076883
+2024-12-19T14:37:56,885 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Successfully loaded /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml.
+2024-12-19T14:37:56,886 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - [PID]144
+2024-12-19T14:37:56,886 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Torch worker started.
+2024-12-19T14:37:56,886 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9002-sd3_1.0 State change WORKER_STOPPED -> WORKER_STARTED
+2024-12-19T14:37:56,886 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Python runtime: 3.11.10
+2024-12-19T14:37:56,886 [INFO ] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9002
+2024-12-19T14:37:56,898 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd LOAD repeats 1 to backend at: 1734619076898
+2024-12-19T14:37:56,898 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9002.
+2024-12-19T14:37:56,898 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - model_name: sd3, batchSize: 1
+2024-12-19T14:37:56,898 [INFO ] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734619076898
+2024-12-19T14:37:56,913 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - model_name: sd3, batchSize: 1
+2024-12-19T14:37:58,316 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Enabled tensor cores
+2024-12-19T14:37:58,316 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - OpenVINO is not enabled
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - proceeding without onnxruntime
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Torch TensorRT not enabled
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Loading sd3_handler...
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Initializing SD3Handler...
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Starting initialization...
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Model directory: /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - CUDA available: True
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - CUDA device count: 1
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - CUDA current device: 0
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - CUDA device name: NVIDIA L4
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - GPU ID: 0
+2024-12-19T14:37:58,317 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Using device: cuda:0
+2024-12-19T14:37:58,318 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - GPU Memory before loading: 0.00GB
+2024-12-19T14:37:58,318 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Starting to extract model from /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3-model.zip to /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model
+2024-12-19T14:37:58,319 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Zip file contents: ['model_index.json', 'scheduler/', 'scheduler/scheduler_config.json', 'text_encoder/', 'text_encoder/config.json', 'text_encoder/model.safetensors', 'text_encoder_2/', 'text_encoder_2/config.json', 'text_encoder_2/model.safetensors', 'text_encoder_3/', 'text_encoder_3/model-00001-of-00002.safetensors', 'text_encoder_3/config.json', 'text_encoder_3/model-00002-of-00002.safetensors', 'text_encoder_3/model.safetensors.index.json', 'tokenizer/', 'tokenizer/merges.txt', 'tokenizer/vocab.json', 'tokenizer/special_tokens_map.json', 'tokenizer/tokenizer_config.json', 'tokenizer_2/', 'tokenizer_2/merges.txt', 'tokenizer_2/vocab.json', 'tokenizer_2/special_tokens_map.json', 'tokenizer_2/tokenizer_config.json', 'tokenizer_3/', 'tokenizer_3/special_tokens_map.json', 'tokenizer_3/tokenizer.json', 'tokenizer_3/tokenizer_config.json', 'tokenizer_3/spiece.model', 'transformer/', 'transformer/config.json', 'transformer/diffusion_pytorch_model.safetensors', 'vae/', 'vae/config.json', 'vae/diffusion_pytorch_model.safetensors']
+2024-12-19T14:37:58,320 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Enabled tensor cores
+2024-12-19T14:37:58,320 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - OpenVINO is not enabled
+2024-12-19T14:37:58,320 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - proceeding without onnxruntime
+2024-12-19T14:37:58,320 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Torch TensorRT not enabled
+2024-12-19T14:37:58,320 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Loading sd3_handler...
+2024-12-19T14:37:58,320 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Initializing SD3Handler...
+2024-12-19T14:37:58,320 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Starting initialization...
+2024-12-19T14:37:58,320 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Model directory: /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4
+2024-12-19T14:37:58,321 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - CUDA available: True
+2024-12-19T14:37:58,321 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - CUDA device count: 1
+2024-12-19T14:37:58,321 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - CUDA current device: 0
+2024-12-19T14:37:58,321 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - CUDA device name: NVIDIA L4
+2024-12-19T14:37:58,321 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - GPU ID: 0
+2024-12-19T14:37:58,321 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Using device: cuda:0
+2024-12-19T14:37:58,321 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - GPU Memory before loading: 0.00GB
+2024-12-19T14:37:58,321 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Starting to extract model from /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3-model.zip to /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model
+2024-12-19T14:37:58,322 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Zip file contents: ['model_index.json', 'scheduler/', 'scheduler/scheduler_config.json', 'text_encoder/', 'text_encoder/config.json', 'text_encoder/model.safetensors', 'text_encoder_2/', 'text_encoder_2/config.json', 'text_encoder_2/model.safetensors', 'text_encoder_3/', 'text_encoder_3/model-00001-of-00002.safetensors', 'text_encoder_3/config.json', 'text_encoder_3/model-00002-of-00002.safetensors', 'text_encoder_3/model.safetensors.index.json', 'tokenizer/', 'tokenizer/merges.txt', 'tokenizer/vocab.json', 'tokenizer/special_tokens_map.json', 'tokenizer/tokenizer_config.json', 'tokenizer_2/', 'tokenizer_2/merges.txt', 'tokenizer_2/vocab.json', 'tokenizer_2/special_tokens_map.json', 'tokenizer_2/tokenizer_config.json', 'tokenizer_3/', 'tokenizer_3/special_tokens_map.json', 'tokenizer_3/tokenizer.json', 'tokenizer_3/tokenizer_config.json', 'tokenizer_3/spiece.model', 'transformer/', 'transformer/config.json', 'transformer/diffusion_pytorch_model.safetensors', 'vae/', 'vae/config.json', 'vae/diffusion_pytorch_model.safetensors']
+2024-12-19T14:38:12,695 [INFO ] epollEventLoopGroup-3-2 TS_METRICS - ts_inference_requests_total.Count:1.0|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734619092
+2024-12-19T14:38:36,407 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,407 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:64.22546005249023|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,408 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:125.53206253051758|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,408 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:66.2|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,408 [INFO ] pool-3-thread-2 TS_METRICS - GPUMemoryUtilization.Percent:0.017365633411478683|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,408 [INFO ] pool-3-thread-2 TS_METRICS - GPUMemoryUsed.Megabytes:4.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,408 [INFO ] pool-3-thread-2 TS_METRICS - GPUUtilization.Percent:0.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,408 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:27231.984375|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,408 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:3181.4375|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:38:36,409 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:11.8|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619116
+2024-12-19T14:39:36,395 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,396 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:61.36368942260742|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,396 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:128.39380264282227|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,396 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:67.7|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,396 [INFO ] pool-3-thread-2 TS_METRICS - GPUMemoryUtilization.Percent:0.017365633411478683|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,396 [INFO ] pool-3-thread-2 TS_METRICS - GPUMemoryUsed.Megabytes:4.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,396 [INFO ] pool-3-thread-2 TS_METRICS - GPUUtilization.Percent:0.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,397 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:27279.64453125|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,397 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:3133.921875|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:39:36,397 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:11.7|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619176
+2024-12-19T14:40:36,410 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,411 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:57.661712646484375|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,411 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:132.0957794189453|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,411 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:69.6|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,411 [INFO ] pool-3-thread-2 TS_METRICS - GPUMemoryUtilization.Percent:0.017365633411478683|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,411 [INFO ] pool-3-thread-2 TS_METRICS - GPUMemoryUsed.Megabytes:4.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,411 [INFO ] pool-3-thread-2 TS_METRICS - GPUUtilization.Percent:0.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,411 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:27288.0078125|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,412 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:3125.5|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:36,412 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:11.6|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619236
+2024-12-19T14:40:45,650 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Error during model extraction: [Errno 17] File exists: '/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model/transformer'
+2024-12-19T14:40:45,651 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Backend worker process died.
+2024-12-19T14:40:45,651 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Traceback (most recent call last):
+2024-12-19T14:40:45,651 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 301, in <module>
+2024-12-19T14:40:45,651 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -     worker.run_server()
+2024-12-19T14:40:45,651 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 268, in run_server
+2024-12-19T14:40:45,651 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2024-12-19T14:40:45,651 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 196, in handle_connection
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -                             ^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:40:45,651 [INFO ] epollEventLoopGroup-5-3 org.pytorch.serve.wlm.WorkerThread - 9001 Worker disconnected. WORKER_STARTED
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 133, in load_model
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -     service = model_loader.load(
+2024-12-19T14:40:45,652 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -               ^^^^^^^^^^^^^^^^^^
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_loader.py", line 143, in load
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -     initialize_fn(service.context)
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3_handler.py", line 61, in initialize
+2024-12-19T14:40:45,652 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died., startupTimeout:5200sec
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056) ~[?:?]
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:234) [model-server.jar:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2024-12-19T14:40:45,652 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -     zip_ref.extractall(extract_path)
+2024-12-19T14:40:45,653 [WARN ] W-9001-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Load model failed: sd3, error: Worker died.
+2024-12-19T14:40:45,653 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/zipfile.py", line 1702, in extractall
+2024-12-19T14:40:45,653 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -     self._extract_member(zipinfo, path, pwd)
+2024-12-19T14:40:45,653 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9001-sd3_1.0 State change WORKER_STARTED -> WORKER_STOPPED
+2024-12-19T14:40:45,653 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/zipfile.py", line 1752, in _extract_member
+2024-12-19T14:40:45,653 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Auto recovery start timestamp: 1734619245653
+2024-12-19T14:40:45,653 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG -     os.mkdir(targetpath)
+2024-12-19T14:40:45,653 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9001 in 1 seconds.
+2024-12-19T14:40:45,653 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - FileExistsError: [Errno 17] File exists: '/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model/transformer'
+2024-12-19T14:40:45,653 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9001-sd3_1.0-stdout
+2024-12-19T14:40:45,687 [INFO ] W-9001-sd3_1.0-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9001-sd3_1.0-stderr
+2024-12-19T14:40:46,654 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/opt/conda/bin/python3.11, /opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9001, --metrics-config, /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml]
+2024-12-19T14:40:48,197 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - s_name_part0=/tmp/.ts.sock, s_name_part1=9001, pid=201
+2024-12-19T14:40:48,197 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9001
+2024-12-19T14:40:48,202 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Successfully loaded /opt/conda/lib/python3.11/site-packages/ts/configs/metrics.yaml.
+2024-12-19T14:40:48,203 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - [PID]201
+2024-12-19T14:40:48,203 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Torch worker started.
+2024-12-19T14:40:48,203 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9001-sd3_1.0 State change WORKER_STOPPED -> WORKER_STARTED
+2024-12-19T14:40:48,203 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Python runtime: 3.11.10
+2024-12-19T14:40:48,203 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9001
+2024-12-19T14:40:48,204 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9001.
+2024-12-19T14:40:48,204 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd LOAD repeats 1 to backend at: 1734619248204
+2024-12-19T14:40:48,205 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734619248205
+2024-12-19T14:40:48,219 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - model_name: sd3, batchSize: 1
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Enabled tensor cores
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - OpenVINO is not enabled
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - proceeding without onnxruntime
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Torch TensorRT not enabled
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Loading sd3_handler...
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Initializing SD3Handler...
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting initialization...
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Model directory: /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - CUDA available: True
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - CUDA device count: 1
+2024-12-19T14:40:49,890 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - CUDA current device: 0
+2024-12-19T14:40:49,891 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - CUDA device name: NVIDIA L4
+2024-12-19T14:40:49,891 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU ID: 0
+2024-12-19T14:40:49,891 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Using device: cuda:0
+2024-12-19T14:40:49,891 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU Memory before loading: 0.00GB
+2024-12-19T14:40:49,891 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting to extract model from /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3-model.zip to /tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/model
+2024-12-19T14:40:49,892 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Zip file contents: ['model_index.json', 'scheduler/', 'scheduler/scheduler_config.json', 'text_encoder/', 'text_encoder/config.json', 'text_encoder/model.safetensors', 'text_encoder_2/', 'text_encoder_2/config.json', 'text_encoder_2/model.safetensors', 'text_encoder_3/', 'text_encoder_3/model-00001-of-00002.safetensors', 'text_encoder_3/config.json', 'text_encoder_3/model-00002-of-00002.safetensors', 'text_encoder_3/model.safetensors.index.json', 'tokenizer/', 'tokenizer/merges.txt', 'tokenizer/vocab.json', 'tokenizer/special_tokens_map.json', 'tokenizer/tokenizer_config.json', 'tokenizer_2/', 'tokenizer_2/merges.txt', 'tokenizer_2/vocab.json', 'tokenizer_2/special_tokens_map.json', 'tokenizer_2/tokenizer_config.json', 'tokenizer_3/', 'tokenizer_3/special_tokens_map.json', 'tokenizer_3/tokenizer.json', 'tokenizer_3/tokenizer_config.json', 'tokenizer_3/spiece.model', 'transformer/', 'transformer/config.json', 'transformer/diffusion_pytorch_model.safetensors', 'vae/', 'vae/config.json', 'vae/diffusion_pytorch_model.safetensors']
+2024-12-19T14:41:36,429 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,429 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:55.26887893676758|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,429 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:134.4886131286621|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,430 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:70.9|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,430 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:0.017365633411478683|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,430 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:4.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,430 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:0.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,430 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:27189.29296875|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,430 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:3224.2734375|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:41:36,430 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:12.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619296
+2024-12-19T14:42:36,410 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,421 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:54.72482681274414|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,421 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:135.03266525268555|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,421 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:71.2|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,421 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:0.017365633411478683|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,422 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:4.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,422 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:0.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,422 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:27245.95703125|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,422 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:3167.58984375|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:36,422 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:11.8|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619356
+2024-12-19T14:42:37,030 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Model extraction completed successfully
+2024-12-19T14:42:37,035 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Starting to load SD3 pipeline...
+2024-12-19T14:42:37,037 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:42:37,056 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Model extraction completed successfully
+2024-12-19T14:42:37,056 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Starting to load SD3 pipeline...
+2024-12-19T14:42:37,057 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:42:37,161 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:   0%|          | 0/9 [00:00<?, ?it/s]
+2024-12-19T14:42:37,281 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  11%|█         | 1/9 [00:00<00:00,  8.04it/s]
+2024-12-19T14:42:37,927 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:   0%|          | 0/9 [00:00<?, ?it/s]
+2024-12-19T14:42:38,087 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  11%|█         | 1/9 [00:00<00:06,  1.15it/s]
+2024-12-19T14:42:38,088 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:42:38,335 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+2024-12-19T14:42:38,336 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:42:41,380 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  22%|██▏       | 2/9 [00:00<00:00,  8.24it/s]
+2024-12-19T14:42:41,393 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  33%|███▎      | 3/9 [00:04<00:11,  1.94s/it]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+2024-12-19T14:42:42,166 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:42:42,963 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  44%|████▍     | 4/9 [00:05<00:07,  1.48s/it]
+2024-12-19T14:42:48,545 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  67%|██████▋   | 6/9 [00:05<00:02,  1.10it/s]
+2024-12-19T14:42:48,621 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  78%|███████▊  | 7/9 [00:11<00:04,  2.19s/it]
+2024-12-19T14:42:48,621 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:42:48,726 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+2024-12-19T14:42:48,726 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:43:13,068 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  9.59it/s][A
+2024-12-19T14:43:13,068 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.03it/s][A
+2024-12-19T14:43:13,068 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Error during pipeline loading: Error while deserializing header: MetadataIncompleteBuffer
+2024-12-19T14:43:13,068 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Error during pipeline loading: Error while deserializing header: MetadataIncompleteBuffer
+2024-12-19T14:43:13,069 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards:  50%|█████     | 1/2 [00:34<00:34, 34.98s/it]
+2024-12-19T14:43:13,069 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards:  50%|█████     | 1/2 [00:24<00:24, 24.45s/it]
+2024-12-19T14:43:13,069 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:43:13,069 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:43:13,069 [WARN ] W-9000-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  11%|█         | 1/9 [00:36<04:48, 36.01s/it]
+2024-12-19T14:43:13,069 [WARN ] W-9002-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  89%|████████▉ | 8/9 [00:36<00:04,  4.50s/it]
+2024-12-19T14:43:13,133 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Backend worker process died.
+2024-12-19T14:43:13,133 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Backend worker process died.
+2024-12-19T14:43:13,133 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - Traceback (most recent call last):
+2024-12-19T14:43:13,133 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - Traceback (most recent call last):
+2024-12-19T14:43:13,133 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 301, in <module>
+2024-12-19T14:43:13,133 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 301, in <module>
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     worker.run_server()
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     worker.run_server()
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 268, in run_server
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 268, in run_server
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 196, in handle_connection
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 196, in handle_connection
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -                             ^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 133, in load_model
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     service = model_loader.load(
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -                             ^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -               ^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_service_worker.py", line 133, in load_model
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_loader.py", line 143, in load
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     service = model_loader.load(
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -               ^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     initialize_fn(service.context)
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/opt/conda/lib/python3.11/site-packages/ts/model_loader.py", line 143, in load
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3_handler.py", line 69, in initialize
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     initialize_fn(service.context)
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     self.pipe = StableDiffusion3Pipeline.from_pretrained(
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/sd3_handler.py", line 69, in initialize
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+2024-12-19T14:43:13,134 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     self.pipe = StableDiffusion3Pipeline.from_pretrained(
+2024-12-19T14:43:13,134 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     return fn(*args, **kwargs)
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -            ^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/diffusers/pipelines/pipeline_utils.py", line 876, in from_pretrained
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     return fn(*args, **kwargs)
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -            ^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/diffusers/pipelines/pipeline_utils.py", line 876, in from_pretrained
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     loaded_sub_model = load_sub_model(
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     loaded_sub_model = load_sub_model(
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -                        ^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/diffusers/pipelines/pipeline_loading_utils.py", line 700, in load_sub_model
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -                        ^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     loaded_sub_model = load_method(os.path.join(cached_folder, name), **loading_kwargs)
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/diffusers/pipelines/pipeline_loading_utils.py", line 700, in load_sub_model
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     loaded_sub_model = load_method(os.path.join(cached_folder, name), **loading_kwargs)
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/transformers/modeling_utils.py", line 3916, in from_pretrained
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     ) = cls._load_pretrained_model(
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/transformers/modeling_utils.py", line 4370, in _load_pretrained_model
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     state_dict = load_state_dict(shard_file, is_quantized=is_quantized)
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/transformers/modeling_utils.py", line 3916, in from_pretrained
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     ) = cls._load_pretrained_model(
+2024-12-19T14:43:13,135 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/transformers/modeling_utils.py", line 549, in load_state_dict
+2024-12-19T14:43:13,135 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,136 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -     with safe_open(checkpoint_file, framework="pt") as f:
+2024-12-19T14:43:13,136 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/transformers/modeling_utils.py", line 4370, in _load_pretrained_model
+2024-12-19T14:43:13,136 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG -          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,136 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     state_dict = load_state_dict(shard_file, is_quantized=is_quantized)
+2024-12-19T14:43:13,136 [INFO ] W-9000-sd3_1.0-stdout MODEL_LOG - safetensors_rust.SafetensorError: Error while deserializing header: MetadataIncompleteBuffer
+2024-12-19T14:43:13,136 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,136 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -   File "/tmp/models/0be7aea189cb49c8b6e8d9f5ec1907d4/transformers/modeling_utils.py", line 549, in load_state_dict
+2024-12-19T14:43:13,136 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -     with safe_open(checkpoint_file, framework="pt") as f:
+2024-12-19T14:43:13,136 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG -          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2024-12-19T14:43:13,136 [INFO ] W-9002-sd3_1.0-stdout MODEL_LOG - safetensors_rust.SafetensorError: Error while deserializing header: MetadataIncompleteBuffer
+2024-12-19T14:43:13,136 [INFO ] epollEventLoopGroup-5-4 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
+2024-12-19T14:43:13,137 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2024-12-19T14:43:13,137 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died., startupTimeout:5200sec
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056) ~[?:?]
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:234) [model-server.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2024-12-19T14:43:13,137 [WARN ] W-9000-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Load model failed: sd3, error: Worker died.
+2024-12-19T14:43:13,137 [DEBUG] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-sd3_1.0 State change WORKER_STARTED -> WORKER_STOPPED
+2024-12-19T14:43:13,138 [WARN ] W-9000-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Auto recovery failed again
+2024-12-19T14:43:13,158 [INFO ] epollEventLoopGroup-5-5 org.pytorch.serve.wlm.WorkerThread - 9002 Worker disconnected. WORKER_STARTED
+2024-12-19T14:43:13,159 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2024-12-19T14:43:13,159 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died., startupTimeout:5200sec
+java.lang.InterruptedException: null
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:2056) ~[?:?]
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2133) ~[?:?]
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:432) ~[?:?]
+	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:234) [model-server.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2024-12-19T14:43:13,159 [WARN ] W-9002-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Load model failed: sd3, error: Worker died.
+2024-12-19T14:43:13,159 [DEBUG] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9002-sd3_1.0 State change WORKER_STARTED -> WORKER_STOPPED
+2024-12-19T14:43:13,159 [WARN ] W-9002-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Auto recovery failed again
+2024-12-19T14:43:13,183 [INFO ] W-9000-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-sd3_1.0-stdout
+2024-12-19T14:43:13,184 [INFO ] W-9000-sd3_1.0-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-sd3_1.0-stderr
+2024-12-19T14:43:13,199 [INFO ] W-9002-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9002-sd3_1.0-stdout
+2024-12-19T14:43:13,199 [INFO ] W-9002-sd3_1.0-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9002-sd3_1.0-stderr
+2024-12-19T14:43:36,400 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,400 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:53.09879684448242|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,401 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:136.65869522094727|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,401 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:72.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,401 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:0.017365633411478683|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,401 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:4.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,401 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:0.0|#Level:Host,DeviceId:0|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,401 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:27917.1328125|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,401 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:2496.4921875|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,402 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:9.6|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619416
+2024-12-19T14:43:36,561 [ERROR] Thread-7 org.pytorch.serve.metrics.MetricCollector - --- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.11/logging/__init__.py", line 1114, in emit
+    self.flush()
+  File "/opt/conda/lib/python3.11/logging/__init__.py", line 1094, in flush
+    self.stream.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+Call stack:
+  File "/opt/conda/lib/python3.11/site-packages/ts/metrics/metric_collector.py", line 29, in <module>
+    check_process_mem_usage(sys.stdin)
+  File "/opt/conda/lib/python3.11/site-packages/ts/metrics/process_memory_metric.py", line 40, in check_process_mem_usage
+    logging.info("%s:%d", process, get_cpu_usage(process))
+Message: '%s:%d'
+Arguments: ('201', 563802112)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_pslinux.py", line 1717, in wrapper
+    return fun(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_common.py", line 508, in wrapper
+    raise raise_from(err, None)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 3, in raise_from
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_common.py", line 506, in wrapper
+    return fun(self)
+           ^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_pslinux.py", line 1780, in _parse_stat_file
+    data = bcat("%s/%s/stat" % (self._procfs_path, self.pid))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_common.py", line 851, in bcat
+    return cat(fname, fallback=fallback, _open=open_binary)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_common.py", line 839, in cat
+    with _open(fname) as f:
+         ^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_common.py", line 799, in open_binary
+    return open(fname, "rb", buffering=FILE_READ_BUFFER_SIZE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/143/stat'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.11/site-packages/psutil/__init__.py", line 355, in _init
+    self._ident = self._get_ident()
+                  ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/__init__.py", line 396, in _get_ident
+    return (self.pid, self.create_time())
+                      ^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/__init__.py", line 778, in create_time
+    self._create_time = self._proc.create_time()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_pslinux.py", line 1717, in wrapper
+    return fun(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_pslinux.py", line 1953, in create_time
+    ctime = float(self._parse_stat_file()['create_time'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/_pslinux.py", line 1726, in wrapper
+    raise NoSuchProcess(self.pid, self._name)
+psutil.NoSuchProcess: process no longer exists (pid=143)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.11/site-packages/ts/metrics/process_memory_metric.py", line 20, in get_cpu_usage
+    process = psutil.Process(int(pid))
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/psutil/__init__.py", line 319, in __init__
+    self._init(pid)
+  File "/opt/conda/lib/python3.11/site-packages/psutil/__init__.py", line 368, in _init
+    raise NoSuchProcess(pid, msg=msg)
+psutil.NoSuchProcess: process PID not found (pid=143)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.11/logging/__init__.py", line 1114, in emit
+    self.flush()
+  File "/opt/conda/lib/python3.11/logging/__init__.py", line 1094, in flush
+    self.stream.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+Call stack:
+  File "/opt/conda/lib/python3.11/site-packages/ts/metrics/metric_collector.py", line 29, in <module>
+    check_process_mem_usage(sys.stdin)
+  File "/opt/conda/lib/python3.11/site-packages/ts/metrics/process_memory_metric.py", line 40, in check_process_mem_usage
+    logging.info("%s:%d", process, get_cpu_usage(process))
+  File "/opt/conda/lib/python3.11/site-packages/ts/metrics/process_memory_metric.py", line 22, in get_cpu_usage
+    logging.error("Failed get process for pid: %s", pid, exc_info=True)
+Message: 'Failed get process for pid: %s'
+Arguments: ('143',)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.11/logging/__init__.py", line 1114, in emit
+    self.flush()
+  File "/opt/conda/lib/python3.11/logging/__init__.py", line 1094, in flush
+    self.stream.flush()
+BrokenPipeError: [Errno 32] Broken pipe
+Call stack:
+  File "/opt/conda/lib/python3.11/site-packages/ts/metrics/metric_collector.py", line 29, in <module>
+    check_process_mem_usage(sys.stdin)
+  File "/opt/conda/lib/python3.11/site-packages/ts/metrics/process_memory_metric.py", line 40, in check_process_mem_usage
+    logging.info("%s:%d", process, get_cpu_usage(process))
+Message: '%s:%d'
+Arguments: ('143', 0)
+Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+BrokenPipeError: [Errno 32] Broken pipe
+
+2024-12-19T14:43:58,557 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Model extraction completed successfully
+2024-12-19T14:43:58,557 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting to load SD3 pipeline...
+2024-12-19T14:43:58,559 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:43:58,684 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:   0%|          | 0/9 [00:00<?, ?it/s]
+2024-12-19T14:43:58,863 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  11%|█         | 1/9 [00:00<00:00,  8.01it/s]
+2024-12-19T14:43:58,947 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  22%|██▏       | 2/9 [00:00<00:01,  6.38it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+2024-12-19T14:43:59,092 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:44:00,797 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  56%|█████▌    | 5/9 [00:00<00:00, 10.08it/s]
+2024-12-19T14:44:00,837 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  78%|███████▊  | 7/9 [00:02<00:00,  2.47it/s]
+2024-12-19T14:44:00,838 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:44:00,945 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+2024-12-19T14:44:00,945 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:44:01,073 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  9.30it/s][A
+2024-12-19T14:44:01,074 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:44:01,074 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  8.35it/s][A
+2024-12-19T14:44:01,074 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  8.47it/s]
+2024-12-19T14:44:01,076 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:44:01,112 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...:  89%|████████▉ | 8/9 [00:02<00:00,  2.66it/s]
+2024-12-19T14:44:01,113 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - Loading pipeline components...: 100%|██████████| 9/9 [00:02<00:00,  3.52it/s]
+2024-12-19T14:44:01,113 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Pipeline loaded successfully
+2024-12-19T14:44:01,113 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Moving pipeline to device...
+2024-12-19T14:46:54,174 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Pipeline successfully moved to device
+2024-12-19T14:46:54,174 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU Memory after loading: 15.56GB
+2024-12-19T14:46:54,175 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Initialization completed in 364.28 seconds
+2024-12-19T14:46:54,175 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 365970
+2024-12-19T14:46:54,176 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - W-9001-sd3_1.0 State change WORKER_STARTED -> WORKER_MODEL_LOADED
+2024-12-19T14:46:54,176 [INFO ] W-9001-sd3_1.0 TS_METRICS - WorkerLoadTime.Milliseconds:560981.0|#WorkerName:W-9001-sd3_1.0,Level:Host|#hostname:afc04cdae53f,timestamp:1734619614
+2024-12-19T14:46:54,177 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Auto recovery succeeded, reset recoveryStartTS
+2024-12-19T14:46:54,177 [INFO ] W-9001-sd3_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:3.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619614
+2024-12-19T14:46:54,177 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd PREDICT repeats 1 to backend at: 1734619614177
+2024-12-19T14:46:54,177 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734619614177
+2024-12-19T14:46:54,178 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Backend received inference at: 1734619614
+2024-12-19T14:46:54,178 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting preprocessing...
+2024-12-19T14:46:54,178 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processing request 1/1
+2024-12-19T14:46:54,178 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Using body as input text was not found in data
+2024-12-19T14:46:54,178 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Decoded bytes to string
+2024-12-19T14:46:54,178 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processed input text: ''
+2024-12-19T14:46:54,178 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Preprocessing completed. Total inputs: 1
+2024-12-19T14:46:54,179 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting inference with 1 inputs
+2024-12-19T14:46:54,179 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Running pipeline inference...
+2024-12-19T14:46:55,165 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T14:46:56,136 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   0%|          | 0/28 [00:00<?, ?it/s]
+2024-12-19T14:46:56,244 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   4%|▎         | 1/28 [00:00<00:26,  1.03it/s]
+2024-12-19T14:46:56,703 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   7%|▋         | 2/28 [00:01<00:12,  2.16it/s]
+2024-12-19T14:46:57,161 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  11%|█         | 3/28 [00:01<00:11,  2.17it/s]
+2024-12-19T14:46:57,617 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  14%|█▍        | 4/28 [00:01<00:11,  2.17it/s]
+2024-12-19T14:46:58,079 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  18%|█▊        | 5/28 [00:02<00:10,  2.18it/s]
+2024-12-19T14:46:58,534 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  21%|██▏       | 6/28 [00:02<00:10,  2.17it/s]
+2024-12-19T14:46:58,996 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  25%|██▌       | 7/28 [00:03<00:09,  2.18it/s]
+2024-12-19T14:46:59,447 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  29%|██▊       | 8/28 [00:03<00:09,  2.18it/s]
+2024-12-19T14:46:59,912 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  32%|███▏      | 9/28 [00:04<00:08,  2.19it/s]
+2024-12-19T14:47:00,365 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  36%|███▌      | 10/28 [00:04<00:08,  2.18it/s]
+2024-12-19T14:47:00,833 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  39%|███▉      | 11/28 [00:05<00:07,  2.19it/s]
+2024-12-19T14:47:01,286 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  43%|████▎     | 12/28 [00:05<00:07,  2.17it/s]
+2024-12-19T14:47:01,757 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  46%|████▋     | 13/28 [00:06<00:06,  2.18it/s]
+2024-12-19T14:47:02,212 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  50%|█████     | 14/28 [00:06<00:06,  2.16it/s]
+2024-12-19T14:47:02,678 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  54%|█████▎    | 15/28 [00:07<00:05,  2.17it/s]
+2024-12-19T14:47:03,136 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  57%|█████▋    | 16/28 [00:07<00:05,  2.17it/s]
+2024-12-19T14:47:03,599 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  61%|██████    | 17/28 [00:07<00:05,  2.17it/s]
+2024-12-19T14:47:04,058 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  64%|██████▍   | 18/28 [00:08<00:04,  2.17it/s]
+2024-12-19T14:47:04,519 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  68%|██████▊   | 19/28 [00:08<00:04,  2.17it/s]
+2024-12-19T14:47:04,980 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  71%|███████▏  | 20/28 [00:09<00:03,  2.17it/s]
+2024-12-19T14:47:05,440 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  75%|███████▌  | 21/28 [00:09<00:03,  2.17it/s]
+2024-12-19T14:47:05,901 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  79%|███████▊  | 22/28 [00:10<00:02,  2.17it/s]
+2024-12-19T14:47:06,360 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  82%|████████▏ | 23/28 [00:10<00:02,  2.17it/s]
+2024-12-19T14:47:06,826 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  86%|████████▌ | 24/28 [00:11<00:01,  2.17it/s]
+2024-12-19T14:47:07,281 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  89%|████████▉ | 25/28 [00:11<00:01,  2.16it/s]
+2024-12-19T14:47:07,751 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  93%|█████████▎| 26/28 [00:12<00:00,  2.17it/s]
+2024-12-19T14:47:08,208 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  96%|█████████▋| 27/28 [00:12<00:00,  2.16it/s]
+2024-12-19T14:47:08,208 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 100%|██████████| 28/28 [00:13<00:00,  2.17it/s]
+2024-12-19T14:47:08,208 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 100%|██████████| 28/28 [00:13<00:00,  2.15it/s]
+2024-12-19T14:47:09,073 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Generated 1 images
+2024-12-19T14:47:09,073 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU Memory after inference: 15.57GB
+2024-12-19T14:47:09,073 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Inference completed in 14.89 seconds
+2024-12-19T14:47:09,073 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting postprocessing...
+2024-12-19T14:47:09,073 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processing output image 1/1
+2024-12-19T14:47:09,888 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Postprocessing completed for 1 images
+2024-12-19T14:47:09,888 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Postprocessing completed in 0.81 seconds
+2024-12-19T14:47:09,888 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]HandlerTime.Milliseconds:15709.92|#ModelName:sd3,Level:Model|#type:GAUGE|#hostname:afc04cdae53f,1734619629,8cc5a311-f4c0-40d2-8f6b-1a0e45a2ebc2, pattern=[METRICS]
+2024-12-19T14:47:09,889 [INFO ] W-9001-sd3_1.0-stdout MODEL_METRICS - HandlerTime.ms:15709.92|#ModelName:sd3,Level:Model|#hostname:afc04cdae53f,requestID:8cc5a311-f4c0-40d2-8f6b-1a0e45a2ebc2,timestamp:1734619629
+2024-12-19T14:47:09,889 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]PredictionTime.Milliseconds:15710.01|#ModelName:sd3,Level:Model|#type:GAUGE|#hostname:afc04cdae53f,1734619629,8cc5a311-f4c0-40d2-8f6b-1a0e45a2ebc2, pattern=[METRICS]
+2024-12-19T14:47:09,889 [INFO ] W-9001-sd3_1.0-stdout MODEL_METRICS - PredictionTime.ms:15710.01|#ModelName:sd3,Level:Model|#hostname:afc04cdae53f,requestID:8cc5a311-f4c0-40d2-8f6b-1a0e45a2ebc2,timestamp:1734619629
+2024-12-19T14:47:12,102 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Sending response for jobId 8cc5a311-f4c0-40d2-8f6b-1a0e45a2ebc2
+2024-12-19T14:47:12,133 [INFO ] W-9001-sd3_1.0 ACCESS_LOG - /172.18.0.1:44072 "GET /predictions/sd3?text=dog HTTP/1.1" 200 539439
+2024-12-19T14:47:12,134 [INFO ] W-9001-sd3_1.0 TS_METRICS - Requests2XX.Count:1.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619632
+2024-12-19T14:47:12,135 [INFO ] W-9001-sd3_1.0 TS_METRICS - ts_inference_latency_microseconds.Microseconds:5.39399673951E8|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734619632
+2024-12-19T14:47:12,135 [INFO ] W-9001-sd3_1.0 TS_METRICS - ts_queue_latency_microseconds.Microseconds:5.2147404035E8|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734619632
+2024-12-19T14:47:12,135 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.job.RestJob - Waiting time ns: 521474040350, Backend time ns: 17957853636
+2024-12-19T14:47:12,135 [INFO ] W-9001-sd3_1.0 TS_METRICS - QueueTime.Milliseconds:521474.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619632
+2024-12-19T14:47:12,135 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 17925
+2024-12-19T14:47:12,135 [INFO ] W-9001-sd3_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:33.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734619632
+2024-12-19T15:01:26,349 [INFO ] epollEventLoopGroup-3-3 TS_METRICS - ts_inference_requests_total.Count:1.0|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620486
+2024-12-19T15:01:26,350 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd PREDICT repeats 1 to backend at: 1734620486350
+2024-12-19T15:01:26,350 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734620486350
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Backend received inference at: 1734620486
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting preprocessing...
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processing request 1/1
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Using body as input text was not found in data
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Decoded bytes to string
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processed input text: 'cat and dog in same image'
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Preprocessing completed. Total inputs: 1
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting inference with 1 inputs
+2024-12-19T15:01:26,351 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Running pipeline inference...
+2024-12-19T15:01:26,529 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T15:01:26,979 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   0%|          | 0/28 [00:00<?, ?it/s]
+2024-12-19T15:01:27,097 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   4%|▎         | 1/28 [00:00<00:12,  2.23it/s]
+2024-12-19T15:01:27,562 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   7%|▋         | 2/28 [00:00<00:06,  3.93it/s]
+2024-12-19T15:01:28,017 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  11%|█         | 3/28 [00:01<00:08,  2.85it/s]
+2024-12-19T15:01:28,482 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  14%|█▍        | 4/28 [00:01<00:09,  2.55it/s]
+2024-12-19T15:01:28,940 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  18%|█▊        | 5/28 [00:01<00:09,  2.39it/s]
+2024-12-19T15:01:29,402 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  21%|██▏       | 6/28 [00:02<00:09,  2.32it/s]
+2024-12-19T15:01:29,865 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  25%|██▌       | 7/28 [00:02<00:09,  2.26it/s]
+2024-12-19T15:01:30,322 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  29%|██▊       | 8/28 [00:03<00:08,  2.23it/s]
+2024-12-19T15:01:30,793 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  32%|███▏      | 9/28 [00:03<00:08,  2.22it/s]
+2024-12-19T15:01:31,249 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  36%|███▌      | 10/28 [00:04<00:08,  2.19it/s]
+2024-12-19T15:01:31,717 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  39%|███▉      | 11/28 [00:04<00:07,  2.19it/s]
+2024-12-19T15:01:32,175 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  43%|████▎     | 12/28 [00:05<00:07,  2.17it/s]
+2024-12-19T15:01:32,640 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  46%|████▋     | 13/28 [00:05<00:06,  2.18it/s]
+2024-12-19T15:01:33,098 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  50%|█████     | 14/28 [00:06<00:06,  2.17it/s]
+2024-12-19T15:01:33,563 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  54%|█████▎    | 15/28 [00:06<00:05,  2.17it/s]
+2024-12-19T15:01:34,022 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  57%|█████▋    | 16/28 [00:07<00:05,  2.17it/s]
+2024-12-19T15:01:34,493 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  61%|██████    | 17/28 [00:07<00:05,  2.17it/s]
+2024-12-19T15:01:34,954 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  64%|██████▍   | 18/28 [00:07<00:04,  2.16it/s]
+2024-12-19T15:01:35,419 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  68%|██████▊   | 19/28 [00:08<00:04,  2.16it/s]
+2024-12-19T15:01:35,879 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  71%|███████▏  | 20/28 [00:08<00:03,  2.16it/s]
+2024-12-19T15:01:36,342 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  75%|███████▌  | 21/28 [00:09<00:03,  2.16it/s]
+2024-12-19T15:01:36,810 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  79%|███████▊  | 22/28 [00:09<00:02,  2.16it/s]
+2024-12-19T15:01:37,277 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  82%|████████▏ | 23/28 [00:10<00:02,  2.15it/s]
+2024-12-19T15:01:37,749 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  86%|████████▌ | 24/28 [00:10<00:01,  2.15it/s]
+2024-12-19T15:01:38,217 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  89%|████████▉ | 25/28 [00:11<00:01,  2.14it/s]
+2024-12-19T15:01:38,682 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  93%|█████████▎| 26/28 [00:11<00:00,  2.14it/s]
+2024-12-19T15:01:39,153 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  96%|█████████▋| 27/28 [00:12<00:00,  2.14it/s]
+2024-12-19T15:01:39,153 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 100%|██████████| 28/28 [00:12<00:00,  2.14it/s]
+2024-12-19T15:01:39,153 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 100%|██████████| 28/28 [00:12<00:00,  2.22it/s]
+2024-12-19T15:01:39,962 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Generated 1 images
+2024-12-19T15:01:39,962 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU Memory after inference: 15.57GB
+2024-12-19T15:01:39,962 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Inference completed in 13.61 seconds
+2024-12-19T15:01:39,962 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting postprocessing...
+2024-12-19T15:01:39,962 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processing output image 1/1
+2024-12-19T15:01:40,584 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Postprocessing completed for 1 images
+2024-12-19T15:01:40,585 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Postprocessing completed in 0.62 seconds
+2024-12-19T15:01:40,585 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]HandlerTime.Milliseconds:14233.73|#ModelName:sd3,Level:Model|#type:GAUGE|#hostname:afc04cdae53f,1734620500,29cbe6bb-889c-4041-9b4b-abdffefcb468, pattern=[METRICS]
+2024-12-19T15:01:40,585 [INFO ] W-9001-sd3_1.0-stdout MODEL_METRICS - HandlerTime.ms:14233.73|#ModelName:sd3,Level:Model|#hostname:afc04cdae53f,requestID:29cbe6bb-889c-4041-9b4b-abdffefcb468,timestamp:1734620500
+2024-12-19T15:01:40,585 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]PredictionTime.Milliseconds:14233.81|#ModelName:sd3,Level:Model|#type:GAUGE|#hostname:afc04cdae53f,1734620500,29cbe6bb-889c-4041-9b4b-abdffefcb468, pattern=[METRICS]
+2024-12-19T15:01:40,585 [INFO ] W-9001-sd3_1.0-stdout MODEL_METRICS - PredictionTime.ms:14233.81|#ModelName:sd3,Level:Model|#hostname:afc04cdae53f,requestID:29cbe6bb-889c-4041-9b4b-abdffefcb468,timestamp:1734620500
+2024-12-19T15:01:42,683 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Sending response for jobId 29cbe6bb-889c-4041-9b4b-abdffefcb468
+2024-12-19T15:01:42,690 [INFO ] W-9001-sd3_1.0 ACCESS_LOG - /172.18.0.3:32854 "POST /predictions/sd3 HTTP/1.1" 200 16341
+2024-12-19T15:01:42,690 [INFO ] W-9001-sd3_1.0 TS_METRICS - Requests2XX.Count:1.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620502
+2024-12-19T15:01:42,693 [INFO ] W-9001-sd3_1.0 TS_METRICS - ts_inference_latency_microseconds.Microseconds:1.6333731995E7|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620502
+2024-12-19T15:01:42,693 [INFO ] W-9001-sd3_1.0 TS_METRICS - ts_queue_latency_microseconds.Microseconds:120.779|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620502
+2024-12-19T15:01:42,693 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.job.RestJob - Waiting time ns: 120779, Backend time ns: 16343802268
+2024-12-19T15:01:42,694 [INFO ] W-9001-sd3_1.0 TS_METRICS - QueueTime.Milliseconds:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620502
+2024-12-19T15:01:42,694 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 16333
+2024-12-19T15:01:42,694 [INFO ] W-9001-sd3_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:11.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620502
+2024-12-19T15:03:13,437 [INFO ] epollEventLoopGroup-3-4 TS_METRICS - ts_inference_requests_total.Count:1.0|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620593
+2024-12-19T15:03:13,437 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd PREDICT repeats 1 to backend at: 1734620593437
+2024-12-19T15:03:13,437 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734620593437
+2024-12-19T15:03:13,438 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Backend received inference at: 1734620593
+2024-12-19T15:03:13,438 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting preprocessing...
+2024-12-19T15:03:13,438 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processing request 1/1
+2024-12-19T15:03:13,438 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Using body as input text was not found in data
+2024-12-19T15:03:13,438 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Decoded bytes to string
+2024-12-19T15:03:13,438 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processed input text: 'super star rajinikanth as president of USA'
+2024-12-19T15:03:13,438 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Preprocessing completed. Total inputs: 1
+2024-12-19T15:03:13,438 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting inference with 1 inputs
+2024-12-19T15:03:13,439 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Running pipeline inference...
+2024-12-19T15:03:13,613 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T15:03:14,058 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   0%|          | 0/28 [00:00<?, ?it/s]
+2024-12-19T15:03:14,174 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   4%|▎         | 1/28 [00:00<00:12,  2.24it/s]
+2024-12-19T15:03:14,642 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   7%|▋         | 2/28 [00:00<00:06,  3.97it/s]
+2024-12-19T15:03:15,090 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  11%|█         | 3/28 [00:01<00:08,  2.86it/s]
+2024-12-19T15:03:15,548 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  14%|█▍        | 4/28 [00:01<00:09,  2.57it/s]
+2024-12-19T15:03:16,005 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  18%|█▊        | 5/28 [00:01<00:09,  2.42it/s]
+2024-12-19T15:03:16,464 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  21%|██▏       | 6/28 [00:02<00:09,  2.33it/s]
+2024-12-19T15:03:16,923 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  25%|██▌       | 7/28 [00:02<00:09,  2.28it/s]
+2024-12-19T15:03:17,381 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  29%|██▊       | 8/28 [00:03<00:08,  2.25it/s]
+2024-12-19T15:03:17,842 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  32%|███▏      | 9/28 [00:03<00:08,  2.23it/s]
+2024-12-19T15:03:18,297 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  36%|███▌      | 10/28 [00:04<00:08,  2.21it/s]
+2024-12-19T15:03:18,759 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  39%|███▉      | 11/28 [00:04<00:07,  2.20it/s]
+2024-12-19T15:03:19,213 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  43%|████▎     | 12/28 [00:05<00:07,  2.19it/s]
+2024-12-19T15:03:19,676 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  46%|████▋     | 13/28 [00:05<00:06,  2.20it/s]
+2024-12-19T15:03:20,128 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  50%|█████     | 14/28 [00:06<00:06,  2.18it/s]
+2024-12-19T15:03:20,594 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  54%|█████▎    | 15/28 [00:06<00:05,  2.19it/s]
+2024-12-19T15:03:21,047 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  57%|█████▋    | 16/28 [00:06<00:05,  2.18it/s]
+2024-12-19T15:03:21,516 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  61%|██████    | 17/28 [00:07<00:05,  2.19it/s]
+2024-12-19T15:03:21,973 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  64%|██████▍   | 18/28 [00:07<00:04,  2.17it/s]
+2024-12-19T15:03:22,439 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  68%|██████▊   | 19/28 [00:08<00:04,  2.18it/s]
+2024-12-19T15:03:22,898 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  71%|███████▏  | 20/28 [00:08<00:03,  2.17it/s]
+2024-12-19T15:03:23,360 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  75%|███████▌  | 21/28 [00:09<00:03,  2.17it/s]
+2024-12-19T15:03:23,818 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  79%|███████▊  | 22/28 [00:09<00:02,  2.17it/s]
+2024-12-19T15:03:24,279 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  82%|████████▏ | 23/28 [00:10<00:02,  2.17it/s]
+2024-12-19T15:03:24,738 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  86%|████████▌ | 24/28 [00:10<00:01,  2.17it/s]
+2024-12-19T15:03:25,201 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  89%|████████▉ | 25/28 [00:11<00:01,  2.17it/s]
+2024-12-19T15:03:25,662 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  93%|█████████▎| 26/28 [00:11<00:00,  2.17it/s]
+2024-12-19T15:03:26,123 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  96%|█████████▋| 27/28 [00:12<00:00,  2.17it/s]
+2024-12-19T15:03:26,123 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 100%|██████████| 28/28 [00:12<00:00,  2.17it/s]
+2024-12-19T15:03:26,123 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 100%|██████████| 28/28 [00:12<00:00,  2.24it/s]
+2024-12-19T15:03:26,937 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Generated 1 images
+2024-12-19T15:03:26,937 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU Memory after inference: 15.57GB
+2024-12-19T15:03:26,937 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Inference completed in 13.50 seconds
+2024-12-19T15:03:26,937 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting postprocessing...
+2024-12-19T15:03:26,938 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processing output image 1/1
+2024-12-19T15:03:27,660 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Postprocessing completed for 1 images
+2024-12-19T15:03:27,660 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Postprocessing completed in 0.72 seconds
+2024-12-19T15:03:27,660 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]HandlerTime.Milliseconds:14221.95|#ModelName:sd3,Level:Model|#type:GAUGE|#hostname:afc04cdae53f,1734620607,a083a13b-49d1-4301-b057-37c55e451fb5, pattern=[METRICS]
+2024-12-19T15:03:27,661 [INFO ] W-9001-sd3_1.0-stdout MODEL_METRICS - HandlerTime.ms:14221.95|#ModelName:sd3,Level:Model|#hostname:afc04cdae53f,requestID:a083a13b-49d1-4301-b057-37c55e451fb5,timestamp:1734620607
+2024-12-19T15:03:27,661 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]PredictionTime.Milliseconds:14222.05|#ModelName:sd3,Level:Model|#type:GAUGE|#hostname:afc04cdae53f,1734620607,a083a13b-49d1-4301-b057-37c55e451fb5, pattern=[METRICS]
+2024-12-19T15:03:27,661 [INFO ] W-9001-sd3_1.0-stdout MODEL_METRICS - PredictionTime.ms:14222.05|#ModelName:sd3,Level:Model|#hostname:afc04cdae53f,requestID:a083a13b-49d1-4301-b057-37c55e451fb5,timestamp:1734620607
+2024-12-19T15:03:29,765 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Sending response for jobId a083a13b-49d1-4301-b057-37c55e451fb5
+2024-12-19T15:03:29,774 [INFO ] W-9001-sd3_1.0 ACCESS_LOG - /172.18.0.3:59874 "POST /predictions/sd3 HTTP/1.1" 200 16338
+2024-12-19T15:03:29,774 [INFO ] W-9001-sd3_1.0 TS_METRICS - Requests2XX.Count:1.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620609
+2024-12-19T15:03:29,774 [INFO ] W-9001-sd3_1.0 TS_METRICS - ts_inference_latency_microseconds.Microseconds:1.6327996413E7|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620609
+2024-12-19T15:03:29,775 [INFO ] W-9001-sd3_1.0 TS_METRICS - ts_queue_latency_microseconds.Microseconds:131.11|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620609
+2024-12-19T15:03:29,776 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.job.RestJob - Waiting time ns: 131110, Backend time ns: 16337339154
+2024-12-19T15:03:29,776 [INFO ] W-9001-sd3_1.0 TS_METRICS - QueueTime.Milliseconds:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620609
+2024-12-19T15:03:29,776 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 16328
+2024-12-19T15:03:29,776 [INFO ] W-9001-sd3_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:11.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620609
+2024-12-19T15:06:55,169 [INFO ] epollEventLoopGroup-3-5 TS_METRICS - ts_inference_requests_total.Count:1.0|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620815
+2024-12-19T15:06:55,170 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd PREDICT repeats 1 to backend at: 1734620815170
+2024-12-19T15:06:55,170 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1734620815170
+2024-12-19T15:06:55,170 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Backend received inference at: 1734620815
+2024-12-19T15:06:55,171 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting preprocessing...
+2024-12-19T15:06:55,171 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processing request 1/1
+2024-12-19T15:06:55,171 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Using body as input text was not found in data
+2024-12-19T15:06:55,171 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Decoded bytes to string
+2024-12-19T15:06:55,171 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processed input text: 'thanos returning all stones to rajinikanth'
+2024-12-19T15:06:55,171 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Preprocessing completed. Total inputs: 1
+2024-12-19T15:06:55,171 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting inference with 1 inputs
+2024-12-19T15:06:55,171 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Running pipeline inference...
+2024-12-19T15:06:55,347 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 
+2024-12-19T15:06:55,799 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   0%|          | 0/28 [00:00<?, ?it/s]
+2024-12-19T15:06:55,915 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   4%|▎         | 1/28 [00:00<00:12,  2.21it/s]
+2024-12-19T15:06:56,391 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -   7%|▋         | 2/28 [00:00<00:06,  3.93it/s]
+2024-12-19T15:06:56,843 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  11%|█         | 3/28 [00:01<00:08,  2.81it/s]
+2024-12-19T15:06:57,316 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  14%|█▍        | 4/28 [00:01<00:09,  2.54it/s]
+2024-12-19T15:06:57,773 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  18%|█▊        | 5/28 [00:01<00:09,  2.37it/s]
+2024-12-19T15:06:58,236 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  21%|██▏       | 6/28 [00:02<00:09,  2.30it/s]
+2024-12-19T15:06:58,698 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  25%|██▌       | 7/28 [00:02<00:09,  2.25it/s]
+2024-12-19T15:06:59,156 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  29%|██▊       | 8/28 [00:03<00:08,  2.23it/s]
+2024-12-19T15:06:59,625 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  32%|███▏      | 9/28 [00:03<00:08,  2.21it/s]
+2024-12-19T15:07:00,090 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  36%|███▌      | 10/28 [00:04<00:08,  2.19it/s]
+2024-12-19T15:07:00,561 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  39%|███▉      | 11/28 [00:04<00:07,  2.18it/s]
+2024-12-19T15:07:01,016 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  43%|████▎     | 12/28 [00:05<00:07,  2.16it/s]
+2024-12-19T15:07:01,488 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  46%|████▋     | 13/28 [00:05<00:06,  2.17it/s]
+2024-12-19T15:07:01,943 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  50%|█████     | 14/28 [00:06<00:06,  2.15it/s]
+2024-12-19T15:07:02,413 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  54%|█████▎    | 15/28 [00:06<00:05,  2.17it/s]
+2024-12-19T15:07:02,871 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  57%|█████▋    | 16/28 [00:07<00:05,  2.16it/s]
+2024-12-19T15:07:03,334 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  61%|██████    | 17/28 [00:07<00:05,  2.16it/s]
+2024-12-19T15:07:03,793 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  64%|██████▍   | 18/28 [00:07<00:04,  2.16it/s]
+2024-12-19T15:07:04,268 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  68%|██████▊   | 19/28 [00:08<00:04,  2.17it/s]
+2024-12-19T15:07:04,730 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  71%|███████▏  | 20/28 [00:08<00:03,  2.15it/s]
+2024-12-19T15:07:05,195 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  75%|███████▌  | 21/28 [00:09<00:03,  2.15it/s]
+2024-12-19T15:07:05,660 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  79%|███████▊  | 22/28 [00:09<00:02,  2.15it/s]
+2024-12-19T15:07:06,130 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  82%|████████▏ | 23/28 [00:10<00:02,  2.15it/s]
+2024-12-19T15:07:06,597 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  86%|████████▌ | 24/28 [00:10<00:01,  2.14it/s]
+2024-12-19T15:07:07,068 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  89%|████████▉ | 25/28 [00:11<00:01,  2.14it/s]
+2024-12-19T15:07:07,542 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  93%|█████████▎| 26/28 [00:11<00:00,  2.14it/s]
+2024-12-19T15:07:08,010 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG -  96%|█████████▋| 27/28 [00:12<00:00,  2.13it/s]
+2024-12-19T15:07:08,011 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 100%|██████████| 28/28 [00:12<00:00,  2.13it/s]
+2024-12-19T15:07:08,011 [WARN ] W-9001-sd3_1.0-stderr MODEL_LOG - 100%|██████████| 28/28 [00:12<00:00,  2.21it/s]
+2024-12-19T15:07:08,831 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Generated 1 images
+2024-12-19T15:07:08,831 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - GPU Memory after inference: 15.57GB
+2024-12-19T15:07:08,831 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Inference completed in 13.66 seconds
+2024-12-19T15:07:08,831 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Starting postprocessing...
+2024-12-19T15:07:08,831 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Processing output image 1/1
+2024-12-19T15:07:09,574 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Postprocessing completed for 1 images
+2024-12-19T15:07:09,574 [INFO ] W-9001-sd3_1.0-stdout MODEL_LOG - Postprocessing completed in 0.74 seconds
+2024-12-19T15:07:09,574 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]HandlerTime.Milliseconds:14403.11|#ModelName:sd3,Level:Model|#type:GAUGE|#hostname:afc04cdae53f,1734620829,bdac3a2c-2ce6-4e3a-819b-2320128a87b7, pattern=[METRICS]
+2024-12-19T15:07:09,574 [INFO ] W-9001-sd3_1.0-stdout MODEL_METRICS - HandlerTime.ms:14403.11|#ModelName:sd3,Level:Model|#hostname:afc04cdae53f,requestID:bdac3a2c-2ce6-4e3a-819b-2320128a87b7,timestamp:1734620829
+2024-12-19T15:07:09,574 [INFO ] W-9001-sd3_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]PredictionTime.Milliseconds:14403.21|#ModelName:sd3,Level:Model|#type:GAUGE|#hostname:afc04cdae53f,1734620829,bdac3a2c-2ce6-4e3a-819b-2320128a87b7, pattern=[METRICS]
+2024-12-19T15:07:09,574 [INFO ] W-9001-sd3_1.0-stdout MODEL_METRICS - PredictionTime.ms:14403.21|#ModelName:sd3,Level:Model|#hostname:afc04cdae53f,requestID:bdac3a2c-2ce6-4e3a-819b-2320128a87b7,timestamp:1734620829
+2024-12-19T15:07:11,650 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.BatchAggregator - Sending response for jobId bdac3a2c-2ce6-4e3a-819b-2320128a87b7
+2024-12-19T15:07:11,658 [INFO ] W-9001-sd3_1.0 ACCESS_LOG - /172.18.0.3:60276 "POST /predictions/sd3 HTTP/1.1" 200 16489
+2024-12-19T15:07:11,658 [INFO ] W-9001-sd3_1.0 TS_METRICS - Requests2XX.Count:1.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620831
+2024-12-19T15:07:11,661 [INFO ] W-9001-sd3_1.0 TS_METRICS - ts_inference_latency_microseconds.Microseconds:1.6480810948E7|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620831
+2024-12-19T15:07:11,661 [INFO ] W-9001-sd3_1.0 TS_METRICS - ts_queue_latency_microseconds.Microseconds:96.017|#model_name:sd3,model_version:default|#hostname:afc04cdae53f,timestamp:1734620831
+2024-12-19T15:07:11,661 [DEBUG] W-9001-sd3_1.0 org.pytorch.serve.job.RestJob - Waiting time ns: 96017, Backend time ns: 16491638572
+2024-12-19T15:07:11,661 [INFO ] W-9001-sd3_1.0 TS_METRICS - QueueTime.Milliseconds:0.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620831
+2024-12-19T15:07:11,661 [INFO ] W-9001-sd3_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 16480
+2024-12-19T15:07:11,662 [INFO ] W-9001-sd3_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:11.0|#Level:Host|#hostname:afc04cdae53f,timestamp:1734620831
