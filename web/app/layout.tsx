@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "TSAI Stable Diffusion",
+  title: "TSAI EMLO-V4 Stable Diffusion - Assignment 12",
   description: "Text to Image generation using Stable Diffusion 3",
 };
 

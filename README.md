@@ -38,9 +38,9 @@ Have a timer in your laptop for this to wait paitently. I did this with g6.2xlar
 
 Wait for 10 minutes
 
-then do `curl http://localhost:8080/ping`, you should get healthy
+then do `curl http://localhost:8080/ping`, you should get  "un healthy" if u get like this restart the service you will get "healthy"
 
-then do `curl http://localhost:8080/predictions/sd3?text=dog`and Wait for 20 minutes, you will get a error that worker has failed after 20 minutes. (because of timeout setting in config.properties)
+then do `curl http://localhost:8080/predictions/sd3?text=dog`and Wait for 20 minutes it will be extacting model and initalizing the handler and you will get "Initialization completed in 217 seconds" in logs it may fail to initalize for first time but wait it will initalize the next time,  you will get a error that worker has failed after 20 minutes. (because of timeout setting in config.properties) or you would have already got "you would also have got pipeline loaded 100% ." now cacnel the request
 
 then do `curl http://localhost:8080/predictions/sd3?text=dog` again and Wait for 10 minutes, you might get inference now
 
@@ -100,3 +100,46 @@ docker run -d \
   -p 8082:8082 \
   --network common_network \
   torchserve --start --ts-config=config.properties --model-store model_store --models sd3=sd3.mar --disable-token-auth --ncs --enable-model-api --foreground
+
+Learnings:
+
+Docker compose
+
+if you have a very big file like 14GB dont copy it inside Docker image directly it will take long time for copying both transfer_context and copy takes a long time and consume too much storage and we wont know where to delete it
+so just create a folder in docker image and try to mount from local to there
+
+you can move some files to dir like ` /opt/dlami/nvme` which might have 400Gb space
+
+rebuild only a particular service
+`docker compose up -d --no-deps --build <service_name>`
+
+Add below command in docker compose to enable gpus
+```
+deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all  # You can use 1 also
+              capabilities: [gpu]
+```
+
+
+Final command
+
+`docker compose up`
+
+once its started wait for 5 minutes to get `Setting default version to 1.0 for model sd3`
+
+then you will get `starting to extract model` or call `curl http://localhost:8080/predictions/sd3?text=dog`
+5 minutes for extraction
+
+it may fail once or twice but it recovers so wait for it to recover and extract successfully
+
+You will get then `moving pipeline to device`
+this will take 5 minutes
+
+if http:localhost:3000 is not loading properly after debugging . Go to PORTS in terminal in vscode and click "x" and then do `docker compose restart web_service`
+
+
+

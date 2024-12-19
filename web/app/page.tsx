@@ -188,7 +188,7 @@ export default function Home() {
         <div className="container mx-auto px-6 py-8">
           <div className="space-y-1 animate-slide-down">
             <h1 className="text-5xl font-bold tracking-tight">
-              TSAI
+            TSAI EMLO-V4
             </h1>
             <p className="text-lg text-muted-foreground">
               Stable Diffusion 3
