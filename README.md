@@ -37,7 +37,7 @@ git clone https://github.com/ToTheBeginning/PuLID
 cd PuLID
 copy dev/pulid.py to this dir
 pip install -r requirements_fp8.txt
-python infer.py --prompt "portrait, pixar" --id_image /home/ubuntu/11-serverless/PuLID/1592308438962.jpeg --start_step 1 --output result.png
+python infer_pulid.py --prompt "portrait, pixar" --id_image images.jpeg --start_step 1 --output result.png
 
 ```
 
