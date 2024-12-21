@@ -31,6 +31,7 @@
 
 ### Development Method
 
+Bonus assignment - Not successfull
 
 ```
 git clone https://github.com/ToTheBeginning/PuLID
@@ -41,6 +42,11 @@ python infer_pulid.py --prompt "portrait, pixar" --id_image images.jpeg --start_
 
 ```
 
+When ever i try to infer after 20 to 30 minutes they gpu memory comes around at 10Gb and the process gets killed.
+
+I had only `g6.2xlarge` instance and aws sales team didnt give me `g6.4xlarge` may be there could be a method to solve with`g6.2xlarge` itself by something i didnt explore it stopping the bonus assignment alone here. Also still there is part for writing torch serve handler's init, preprocess, loading model, infer and postprocess.
+
+**Actual assignment** - completed
 
 - EC2 instance : `g6.2xlarge` - 24 GB GPU RAM and 8vCPU - 32 GB RAM
 

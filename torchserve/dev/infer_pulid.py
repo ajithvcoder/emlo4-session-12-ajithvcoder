@@ -135,7 +135,7 @@ def main():
     parser.add_argument("--start_step", type=int, default=0, help="Timestep to start inserting ID")
     parser.add_argument("--output", type=str, default="output.png", help="Output image path")
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu", help="Device to use")
-    parser.add_argument("--hf_token", type=str, default="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", 
+    parser.add_argument("--hf_token", type=str, default="", 
                       help="Hugging Face authentication token")
     parser.add_argument("--onnx_provider", type=str, default="gpu", choices=["gpu", "cpu"],
                       help="set onnx_provider to cpu (default gpu) can help reduce RAM usage")
