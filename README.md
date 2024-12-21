@@ -25,11 +25,22 @@
 - Be patient 🙂, very patient 🙂🙂🙂 with torchserve
 - Start on this assignment early
 
-**BONUS**
+**BONUS** - TODO - Didnt complete it
 
-- Deploy this: https://github.com/ToTheBeginning/PuLIDLinks to an external site.
+- Deploy this: https://github.com/ToTheBeginning/PuLID
 
 ### Development Method
+
+
+```
+git clone https://github.com/ToTheBeginning/PuLID
+cd PuLID
+copy dev/pulid.py to this dir
+pip install -r requirements_fp8.txt
+python infer.py --prompt "portrait, pixar" --id_image /home/ubuntu/11-serverless/PuLID/1592308438962.jpeg --start_step 1 --output result.png
+
+```
+
 
 - EC2 instance : `g6.2xlarge` - 24 GB GPU RAM and 8vCPU - 32 GB RAM
 
