@@ -55,6 +55,8 @@ this will take 5 minutes
 
 - For clear understanding refer the [logs](./assets/torchserve_logs.txt)
 
+- You can also debug with nvidia-smi command if some python program is utilizing gpu or not after **extaction**
+
 #### Torch Serve Service
 
 **setup**
@@ -249,7 +251,9 @@ npm run dev
 
 ### Integrating S3
 
-- TODO
+- I am downloading .mar file directly as i have spent more than 5 dollars on this project and aws is still not giving me a g6.4xlarge mumbai spot instance. In accordance with requirement you need to fetch the 16 GB .zip file from s3 and use torcharchiver to convert it to .mar file and deploy it with docker compose.
+
+- `python download_model_s3.py` will do the job and env variables are provided to torchserve service in docker compose.
 
 ### Learnings
 

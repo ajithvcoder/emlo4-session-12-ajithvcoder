@@ -1,6 +1,12 @@
 services:
   torchserve_service:
     container_name: dtorchserve
+    env_file:
+      - .env
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
     build: 
       context: ./torchserve
       dockerfile: Dockerfile.torchserve
@@ -8,11 +14,12 @@ services:
     - "8080:8080"
     - "8081:8081"
     - "8082:8082"
-    command: torchserve --start --ts-config=config.properties --model-store model_store --models sd3=sd3.mar --disable-token-auth --ncs --enable-model-api --foreground
+    # command: torchserve --start --ts-config=config.properties --model-store model_store --models sd3=sd3.mar --disable-token-auth --ncs --enable-model-api --foreground
+    command: /workspace/torch_serve_start.sh
     networks:
       - common_network
-    volumes:
-      - ./torchserve/model_store:/workspace/model_store
+    # volumes:
+    #   - ./torchserve/model_store:/workspace/model_store
     deploy:
           resources:
             reservations:
